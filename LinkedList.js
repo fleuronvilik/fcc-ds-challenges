@@ -16,7 +16,6 @@ function LinkedList() {
   };
 
   this.add = function(element){
-    // Only change code below this line
     if (length) {
       let currentNode = head;
       while (currentNode.next !== null) {
@@ -27,14 +26,25 @@ function LinkedList() {
       head = new Node(element);
     } 
     length = length + 1;
-    // console.log(head);
-    // only change code above this line
+  };
+
+  this.remove = function(element){
+    if (length) {
+      if (head.element === element) {
+        head = head.next;
+        length = length - 1;
+      } else {
+        var currentNode = head, previousNode = null;
+        while (currentNode.next) {
+          if (currentNode.element === element) {
+            previousNode.next = currentNode.next;
+            length = length - 1;
+          }
+          previousNode = currentNode;
+          currentNode = currentNode.next;
+        }
+      }
+    }
   };
 }
 
-// var test = new LinkedList();
-// console.log(test.size())
-// test.add("Kitten");
-// test.add("Puppy");
-// test.add("Cat");
-// test.add("Dog");
