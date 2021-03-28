@@ -94,5 +94,25 @@ function LinkedList() {
     }
     return null;
   };
+
+  this.addAt = function(index, element){
+    var node = new Node(element);
+    if (index === 0) {
+      node.next = head;
+      head = node;
+      length = length + 1;
+    } else if (0 < index && index < length) {
+      var counter = 0, currentNode = head, previousNode = null;
+      while(counter < index) {
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+        counter = counter + 1;
+      }
+      node.next = currentNode;
+      previousNode.next = node;
+      length = length + 1;
+    }
+    return false;
+  };
 }
 
