@@ -75,5 +75,24 @@ function LinkedList() {
       return currentNode.element;
     }
   };
+
+  this.removeAt = function(index){
+    if (0 <= index && index < length) {
+      var counter = 0, currentNode = head, previousNode = null;
+      if (length == 1) {
+        head = null;
+      } else {
+        while (counter < index) {
+          previousNode = currentNode;
+          currentNode = currentNode.next;
+          counter = counter + 1;
+        }
+        previousNode.next = currentNode.next;
+      }
+      length = length - 1;
+      return currentNode.element;
+    }
+    return null;
+  };
 }
 
