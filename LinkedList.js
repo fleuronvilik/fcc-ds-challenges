@@ -46,5 +46,34 @@ function LinkedList() {
       }
     }
   };
+
+  this.isEmpty = function(){
+    return length === 0;
+  };
+
+  this.indexOf = function(element){
+    if (length) { // if (!this.isEmpty())
+      var index = 0, currentNode = head;
+      while (currentNode.next) {
+        if (currentNode.element === element) {
+          return index;
+        }
+        currentNode = currentNode.next;
+        index = index + 1;
+      }
+    }
+    return -1;
+  };
+
+  this.elementAt = function(index){
+    if (length && index < length) {
+      var counter = 0, currentNode = head;
+      while (counter < index) {
+        currentNode = currentNode.next;
+        counter = counter + 1;
+      }
+      return currentNode.element;
+    }
+  };
 }
 
